@@ -14,6 +14,7 @@
   "minimum_chrome_version": "121",
   "browser_specific_settings": {
     "gecko": {
+      "id": "tumblr-resize@marcustyphoon",
       "strict_min_version": "128.0"
     }
   }
