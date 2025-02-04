@@ -1,0 +1,63 @@
+name: Generate Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sign-and-release:
+    name: Sign and Generate Release
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up PNPM
+        uses: pnpm/action-setup@v4
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: pnpm
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint WebExtension
+        run: npm run lint
+
+      - name: Get Release Version
+        uses: actions/github-script@v7
+        id: get-version
+        with:
+          result-encoding: string
+          script: |
+            const fs = require('node:fs');
+            const { version } = JSON.parse(fs.readFileSync(('${{ github.workspace }}/src/manifest.json')));
+            const releases = await github.paginate(github.rest.repos.listReleases, { owner: context.repo.owner, repo: context.repo.repo, });
+            if (releases.some(({ tag_name }) => tag_name === `v${version}`)) {
+              throw new Error(`Release v${version} already exists! Did you forget to bump the manifest.json version?`);
+            }
+            return version;
+
+      - name: Firefox — Build and Sign
+        run: npm run sign
+        timeout-minutes: 30
+        env:
+          WEB_EXT_API_KEY: ${{ secrets.WEB_EXT_API_KEY }}
+          WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
+          WEB_EXT_CHANNEL: unlisted
+
+      ### NOTE: This workflow may time out here while waiting for Mozilla review.
+      ### If this occurs, run the "Generate Release (after signing)" action once it is complete.
+
+      - name: Create Github release draft
+        uses: softprops/action-gh-release@v2
+        with:
+          name: Tumblr Resize ${{ steps.get-version.outputs.result }}
+          tag_name: v${{ steps.get-version.outputs.result }}
+          body: |
+            <!-- -->
+          files: web-ext-artifacts/*.xpi
+          draft: true
