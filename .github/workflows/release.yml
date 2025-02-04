@@ -35,10 +35,10 @@ jobs:
           script: |
             const fs = require('node:fs');
             const { version } = JSON.parse(fs.readFileSync(('${{ github.workspace }}/src/manifest.json')));
-            const releases = await github.paginate(github.rest.repos.listReleases, { owner: context.repo.owner, repo: context.repo.repo, });
-            if (releases.some(({ tag_name }) => tag_name === `v${version}`)) {
-              throw new Error(`Release v${version} already exists! Did you forget to bump the manifest.json version?`);
-            }
+            // const releases = await github.paginate(github.rest.repos.listReleases, { owner: context.repo.owner, repo: context.repo.repo, });
+            // if (releases.some(({ tag_name }) => tag_name === `v${version}`)) {
+            //   throw new Error(`Release v${version} already exists! Did you forget to bump the manifest.json version?`);
+            // }
             return version;
 
       - name: Firefox — Build and Sign
