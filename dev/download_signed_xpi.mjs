@@ -1,4 +1,4 @@
-import "dotenv/config";
+import "@dotenvx/dotenvx/config";
 import jwt from "jsonwebtoken";
 import assert from "node:assert";
 import fs from "node:fs";
