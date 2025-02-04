@@ -5,7 +5,8 @@
     "prettier": "prettier src --check",
     "start": "web-ext run",
     "build": "web-ext build",
-    "sign": "env-cmd -- web-ext sign --channel unlisted"
+    "sign": "web-ext sign --channel unlisted",
+    "sign-local": "env-cmd -- web-ext sign --channel unlisted"
   },
   "devDependencies": {
     "dotenv": "^16.4.7",
