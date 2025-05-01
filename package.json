@@ -8,7 +8,7 @@
     "sign": "dotenvx run -- web-ext sign --channel unlisted"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "^1.41.0",
+    "@dotenvx/dotenvx": "^1.42.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.2",
     "jsonwebtoken": "^9.0.2",
