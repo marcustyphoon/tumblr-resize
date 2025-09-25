@@ -3,5 +3,13 @@ if (typeof browser === 'undefined') {
 }
 
 browser.action.onClicked.addListener(async (tab) => {
-  browser.windows.update(tab.windowId, { width: Math.ceil(1018 * (await browser.tabs.getZoom())) });
+  const currentZoom = await browser.tabs.getZoom();
+
+  const targetSize =
+    navigator.userAgent.toLowerCase().includes('firefox') && [0.9, 1.1].includes(currentZoom)
+      ? 1029 // emperically tested; no idea why this is necessary
+      : 1018;
+
+  console.log('zooming browser window to', targetSize, 'px width');
+  browser.windows.update(tab.windowId, { width: Math.ceil(targetSize * currentZoom) });
 });
