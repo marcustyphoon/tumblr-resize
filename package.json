@@ -13,7 +13,7 @@
     "eslint-config-prettier": "^10.1.8",
     "jsonwebtoken": "^9.0.2",
     "prettier": "^3.6.2",
-    "web-ext": "^8.10.0"
+    "web-ext": "^9.1.0"
   },
   "engines": {
     "npm": "please-use-pnpm",
