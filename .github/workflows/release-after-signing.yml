@@ -14,7 +14,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
       - name: Set up PNPM
-        uses: pnpm/action-setup@v5
+        uses: pnpm/action-setup@v6
       - name: Set up Node
         uses: actions/setup-node@v6
         with:
@@ -32,7 +32,7 @@ jobs:
           WEB_EXT_API_SECRET: ${{ secrets.WEB_EXT_API_SECRET }}
 
       - name: Get Release Version
-        uses: actions/github-script@v8
+        uses: actions/github-script@v9
         id: get-version
         with:
           result-encoding: string
@@ -52,7 +52,7 @@ jobs:
             return version;
 
       - name: Create Github release draft
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         with:
           name: Tumblr Resize ${{ steps.get-version.outputs.result }}
           tag_name: v${{ steps.get-version.outputs.result }}
