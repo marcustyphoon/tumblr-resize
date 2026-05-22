@@ -4,9 +4,6 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
-overrides:
-  uuid@<11.1.1: '>=11.1.1'
-
 importers:
 
   .:
