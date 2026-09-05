@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@dotenvx/dotenvx':
-        specifier: ^2.20.1
-        version: 2.20.1
+        specifier: ^2.23.0
+        version: 2.23.0
       eslint:
         specifier: ^8.57.1
         version: 8.57.1
@@ -53,8 +53,8 @@ packages:
     engines: {node: '>= 0.10.4'}
     hasBin: true
 
-  '@dotenvx/dotenvx@2.20.1':
-    resolution: {integrity: sha512-FBOw2xvx202lUkyKrnz5RrCnuuSFmlnHHq2a22ddA2j+DFUPg5raTuspVxy1b5d5nHJdnj5MHvOfO0iX4V9yAw==}
+  '@dotenvx/dotenvx@2.23.0':
+    resolution: {integrity: sha512-LkiCs5ZpGIy+jn85YJKEYKPZkq8QwZegYviwr8w4eFTq+Fb2+j+hFldWpdhppPmFP8ut0cplxL4EEoW06Rzfhw==}
     hasBin: true
 
   '@dotenvx/primitives@2.2.0':
@@ -542,6 +542,7 @@ packages:
   eslint@9.39.4:
     resolution: {integrity: sha512-XoMjdBOwe/esVgEvLmNsD3IRHkm7fbKIUGvrleloJXUZgDHig2IPWNniv+GwjyJXzuNqVjlr5+4yVUZjycJwfQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -1394,7 +1395,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@dotenvx/dotenvx@2.20.1':
+  '@dotenvx/dotenvx@2.23.0':
     dependencies:
       '@dotenvx/primitives': 2.2.0
       '@dotenvx/tooling': 1.0.3
