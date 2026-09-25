@@ -8,12 +8,12 @@
     "sign": "dotenvx run -- web-ext sign --channel unlisted"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "^2.23.0",
+    "@dotenvx/dotenvx": "^2.29.0",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",
     "jsonwebtoken": "^9.0.3",
-    "prettier": "^3.9.6",
-    "web-ext": "^10.6.0"
+    "prettier": "^3.9.8",
+    "web-ext": "^10.7.0"
   },
   "engines": {
     "npm": "please-use-pnpm",
