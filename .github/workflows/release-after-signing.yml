@@ -13,15 +13,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
-      - name: Set up PNPM
-        uses: pnpm/action-setup@v6
       - name: Set up Node
         uses: actions/setup-node@v7
         with:
           node-version: ${{ env.NODE_VERSION }}
-          cache: pnpm
+          cache: npm
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       ### NOTE: This workflow continues the "Generate Release" workflow if it timed out.
 

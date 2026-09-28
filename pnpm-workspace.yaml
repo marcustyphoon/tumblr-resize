@@ -1,3 +1,0 @@
-allowBuilds:
-  spawn-sync: true
-strictDepBuilds: true

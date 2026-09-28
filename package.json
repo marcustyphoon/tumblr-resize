@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "test": "web-ext lint && pnpm run eslint && pnpm run prettier",
+    "test": "web-ext lint && npm run eslint && npm run prettier",
     "eslint": "eslint src",
     "prettier": "prettier src --check",
     "start": "web-ext run",
@@ -8,19 +8,14 @@
     "sign": "dotenvx run -- web-ext sign --channel unlisted"
   },
   "devDependencies": {
-    "@dotenvx/dotenvx": "^2.29.0",
+    "@dotenvx/dotenvx": "^2.31.1",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",
     "jsonwebtoken": "^9.0.3",
-    "prettier": "^3.9.8",
+    "prettier": "^3.9.9",
     "web-ext": "^10.7.0"
-  },
-  "engines": {
-    "npm": "please-use-pnpm",
-    "yarn": "please-use-pnpm"
   },
   "webExt": {
     "sourceDir": "src/"
-  },
-  "packageManager": "pnpm@10.34.5+sha512.a4ee05f2f73658255bd6a89859c065a45c28a57daefae2c893a168ee2b73168c37b91e83e57ea67654ad03f03031746430e8bce38e362e042605fb8abc80192e"
+  }
 }
